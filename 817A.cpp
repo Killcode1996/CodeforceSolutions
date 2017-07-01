@@ -1,0 +1,67 @@
+//--------------**************---------------------
+/* 
+ #        "    ""#    ""#                      #        
+ #   m  mmm      #      #     mmm    mmm    mmm#   mmm  
+ # m"     #      #      #    #"  "  #" "#  #" "#  #"  # 
+ #"#      #      #      #    #      #   #  #   #  #"""" 
+ #  "m  mm#mm    "mm    "mm  "#mm"  "#m#"  "#m##  "#mm"  */
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define pb push_back
+#define mp make_pair
+typedef pair<int,int> pii;
+typedef long long ll;
+typedef double ld;
+typedef vector<int> vi;
+#define fi first
+#define se second
+#define fe first
+#define SZ 666666
+#define si(n) scanf("%d",&n);
+#define sl(n) scanf("%ld",&n);
+#define pi(n) printf("%d\n",n);
+#define pl(n) printf("%ld\n",n);
+#define pf(n) printf("%f\n",n);
+#define FILL(a,b) memset(a,0,sizeof(b));
+#define rep(i,n) for(int i=0;i<n;i++)
+#define reps(i,a,b) for(int i=1;i<=b;i++)
+const int INF=1e9+5;
+const int MOD=1000000007;
+
+//--------------**************---------------------
+int main()
+{
+   int x1,y1,x2,y2;
+   cin>>x1>>y1>>x2>>y2;
+   int x,y;
+   cin>>x>>y;
+   queue <pair <int , int >  >  q;
+   q.push(make_pair(x1,y1));
+   while(!q.empty())
+   {
+    pair <int , int > p;
+    p=q.front(); q.pop();
+    if(p.first==x2 && p.second==y2){cout<<"YES"; return 0;}
+    if(p.first>x2 && p.second>y2 || p.first<x2 && p.second<y2)continue;
+    int nextx=p.first+x;
+    int nexty=p.second+y;
+     if( (nextx>=-100000 && nextx<=100005 ) && (nexty>=-100000 && nextx<=100000) )
+            q.push(make_pair(nextx,nexty));
+     nextx=p.first+x;
+     nexty=p.second-y;
+     if( (nextx>=-100000 && nextx<=100005 ) && (nexty>=-100000 && nextx<=100000) )
+            q.push(make_pair(nextx,nexty));
+     nextx=p.first-x;
+     nexty=p.second+y;
+     if( (nextx>=-100000 && nextx<=100005 ) && (nexty>=-100000 && nextx<=100000) )
+            q.push(make_pair(nextx,nexty));
+     nextx=p.first-x;
+     nexty=p.second-y;
+     if( (nextx>=-100000 && nextx<=100005 ) && (nexty>=-100000 && nextx<=100000) )
+            q.push(make_pair(nextx,nexty));
+    }
+   cout<<"NO";
+
+}
